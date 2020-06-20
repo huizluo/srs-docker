@@ -15,7 +15,7 @@ Download docker from [here](https://www.docker.com/products/docker-desktop) then
 
 ```
 git clone https://gitee.com/winlinvip/srs.oschina.git srs &&
-cd srs && git remote set-url origin https://github.com/ossrs/srs.git && git pull
+cd srs/trunk && git remote set-url origin https://github.com/ossrs/srs.git && git pull
 ```
 
 > Note: Please read https://github.com/ossrs/srs#usage
@@ -23,7 +23,7 @@ cd srs && git remote set-url origin https://github.com/ossrs/srs.git && git pull
 **>>> Start docker**
 
 ```
-docker run -it --privileged --name=srs -v `pwd`:/tmp/srs -w /tmp/srs/trunk -p 1935:1935 \
+docker run -it --privileged --name=srs -v `pwd`:/tmp/srs/trunk -w /tmp/srs/trunk -p 1935:1935 \
   -p 1985:1985 -p 8080:8080 -p 8085:8085 registry.cn-hangzhou.aliyuncs.com/ossrs/srs:dev bash
 ```
 
