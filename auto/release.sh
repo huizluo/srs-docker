@@ -123,7 +123,7 @@ fi
 # If v3.0-b0, it's not temporary release.
 # If v3.0.125, it's temporary release. We won't update srs:3 and srs:latest.
 TEMPORARY_RELEASE=YES;
-echo ${SRS_FILTER}| grep -q '-' && TEMPORARY_RELEASE=NO;
+echo $SRS_TAG| grep -q '-' && TEMPORARY_RELEASE=NO;
 
 NICE "Build docker for fitler=$SRS_FILTER of $SRS_GIT, tag is $SRS_TAG, major=$SRS_MAJOR, temp=$TEMPORARY_RELEASE"
 
@@ -146,6 +146,7 @@ fi
 
 # For docker hub.
 NICE "docker hub $SRS_TAG"
+echo ""
 
 SRS_GITHUB=https://github.com/ossrs/srs.git
 if [[ $MACOS == YES ]]; then
@@ -164,6 +165,7 @@ echo "Cleanup tag $SRS_TAG for docker"
 
 git tag $SRS_TAG; git push origin -f $SRS_TAG
 echo "Create new tag $SRS_TAG for docker"
+echo ""
 
 # For aliyun hub.
 NICE "aliyun hub release-v$SRS_TAG"
@@ -185,6 +187,7 @@ echo "Cleanup tag $SRS_TAG for aliyun"
 
 git tag release-v$SRS_TAG; git push -f aliyun release-v$SRS_TAG
 echo "Create new tag $SRS_TAG for aliyun"
+echo ""
 
 # For temporary release, we don't update srs:3 or srs:latest
 if [[ $TEMPORARY_RELEASE == YES ]]; then
@@ -198,6 +201,7 @@ echo "Cleanup tag $SRS_MAJOR for aliyun"
 
 git tag release-v$SRS_MAJOR; git push -f aliyun release-v$SRS_MAJOR
 echo "Create new tag $SRS_MAJOR for aliyun"
+echo ""
 
 if [[ $SRS_MAJOR == 3 ]]; then
   NICE "aliyun hub release-vlatest"
