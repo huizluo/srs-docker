@@ -16,8 +16,8 @@ RUN apt-get update && \
 ENV PKG_CONFIG_PATH /usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig
 
 # Openssl for SRS
-ADD openssl-1.1.0e.tar.bz2 /tmp
-RUN cd /tmp/openssl-1.1.0e && ./config -no-shared no-threads && make && make install_sw
+ADD openssl-1.1.1h.tar.gz /tmp
+RUN cd /tmp/openssl-1.1.1h && ./config -no-shared no-threads && make && make install_sw
 
 # For FFMPEG
 ADD nasm-2.14.tar.bz2 /tmp
