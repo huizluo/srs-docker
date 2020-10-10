@@ -1,6 +1,6 @@
 # srs-docker
 
-![](http://ossrs.net:8000/gif/v1/sls.gif?site=github.com&path=/docker/ubuntu16)
+![](http://ossrs.net:8000/gif/v1/sls.gif?site=github.com&path=/docker/ubuntu20)
 [![](https://cloud.githubusercontent.com/assets/2777660/22814959/c51cbe72-ef92-11e6-81cc-32b657b285d5.png)](https://github.com/ossrs/srs/wiki/v1_CN_Contact#wechat)
 
 CentOS docker for [SRS](https://github.com/ossrs/srs) developer.
@@ -14,7 +14,7 @@ Download docker from [here](https://www.docker.com/products/docker-desktop) then
 **Pull docker image**
 
 ```
-docker pull ossrs/srs:ubuntu16
+docker pull ossrs/srs:ubuntu20
 ```
 
 **Clone SRS**
@@ -27,10 +27,10 @@ git clone https://github.com/ossrs/srs.git && cd srs
 
 ```
 docker run -it -v `pwd`:/tmp/srs -w /tmp/srs/trunk -p 1935:1935 \
-  -p 1985:1985 -p 8080:8080 -p 8085:8085 ossrs/srs:ubuntu16 bash
+  -p 1985:1985 -p 8080:8080 -p 8085:8085 ossrs/srs:ubuntu20 bash
 ```
 
-> Note: Recommend to use [AliyunCR](https://cr.console.aliyun.com/) `registry.cn-hangzhou.aliyuncs.com/ossrs/srs:ubuntu16`, because it's much faster.
+> Note: Recommend to use [AliyunCR](https://cr.console.aliyun.com/) `registry.cn-hangzhou.aliyuncs.com/ossrs/srs:ubuntu20`, because it's much faster.
 
 **Build SRS in docker**
 
@@ -49,7 +49,7 @@ docker run -it -v `pwd`:/tmp/srs -w /tmp/srs/trunk -p 1935:1935 \
 To enter your container:
 
 ```
-dockerID=`docker ps --format "{{.ID}} {{.Image}}" |grep 'ossrs/srs:ubuntu16' |awk '{print $1}'` &&
+dockerID=`docker ps --format "{{.ID}} {{.Image}}" |grep 'ossrs/srs:ubuntu20' |awk '{print $1}'` &&
 docker exec -it $dockerID bash
 ```
 
