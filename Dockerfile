@@ -4,6 +4,9 @@
 #------------------------------------------------------------------------------------
 FROM ubuntu:xenial as build
 
+# https://serverfault.com/questions/949991/how-to-install-tzdata-on-a-ubuntu-docker-image
+ENV DEBIAN_FRONTEND="noninteractive"
+
 RUN apt-get update && \
     apt-get install -y aptitude gcc g++ make patch unzip python \
         autoconf automake libtool pkg-config libxml2-dev zlib1g-dev \
@@ -52,6 +55,9 @@ COPY --from=build /usr/local/bin/ffmpeg /usr/local/bin/ffmpeg
 COPY --from=build /usr/local/lib/libssl.a /usr/local/lib64/libssl.a
 COPY --from=build /usr/local/lib/libcrypto.a /usr/local/lib64/libcrypto.a
 COPY --from=build /usr/local/include/openssl /usr/local/include/openssl
+
+# https://serverfault.com/questions/949991/how-to-install-tzdata-on-a-ubuntu-docker-image
+ENV DEBIAN_FRONTEND="noninteractive"
 
 # Note that git is very important for codecov to discover the .codecov.yml
 RUN apt-get update && \
