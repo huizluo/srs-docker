@@ -22,14 +22,14 @@ RUN cd /tmp/openssl-1.1.1h && ./config -no-shared no-threads && make && make ins
 # For FFMPEG
 ADD nasm-2.14.tar.bz2 /tmp
 ADD yasm-1.2.0.tar.bz2 /tmp
-ADD fdk-aac-0.1.3.tar.bz2 /tmp
+ADD fdk-aac-0.1.6.tar.gz /tmp
 ADD lame-3.99.5.tar.bz2 /tmp
 ADD speex-1.2rc1.tar.bz2 /tmp
 ADD x264-snapshot-20181116-2245.tar.bz2 /tmp
 ADD ffmpeg-4.2.1.tar.bz2 /tmp
 RUN cd /tmp/nasm-2.14 && ./configure && make && make install && \
     cd /tmp/yasm-1.2.0 && ./configure && make && make install && \
-    cd /tmp/fdk-aac-0.1.3 && bash autogen.sh && ./configure && make && make install && \
+    cd /tmp/fdk-aac-0.1.6 && bash autogen.sh && ./configure && make && make install && \
     cd /tmp/lame-3.99.5 && ./configure && make && make install && \
     cd /tmp/speex-1.2rc1 && ./configure && make && make install && \
     cd /tmp/x264-snapshot-20181116-2245 && ./configure --disable-cli --enable-static && make && make install
