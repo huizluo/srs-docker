@@ -32,7 +32,7 @@ RUN cd /tmp/nasm-2.14 && ./configure && make && make install && \
     cd /tmp/fdk-aac-0.1.6 && bash autogen.sh && ./configure && make && make install && \
     cd /tmp/lame-3.99.5 && ./configure && make && make install && \
     cd /tmp/speex-1.2rc1 && ./configure && make && make install && \
-    cd /tmp/x264-snapshot-20181116-2245 && ./configure --disable-cli --enable-static && make && make install
+    cd /tmp/x264-snapshot-20181116-2245 && ./configure --disable-cli --enable-static --enable-pic && make && make install
 
 RUN cd /tmp/ffmpeg-4.2.1 && ./configure --enable-pthreads --extra-libs=-lpthread \
         --enable-gpl --enable-nonfree \
