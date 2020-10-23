@@ -18,10 +18,7 @@ RUN cd /tmp/srs/trunk && ./configure && make && make install
 COPY conf /usr/local/srs/conf
 # The default index.html and srs-console.
 COPY index.html /usr/local/srs/objs/nginx/html/index.html
-COPY srs-ngb/trunk/research/srs-console /usr/local/srs/objs/nginx/html/console
-COPY srs-ngb/trunk/src/3rdparty /usr/local/srs/objs/nginx/html/console/js/3rdparty
-COPY srs-ngb/trunk/src/bravo_alert /usr/local/srs/objs/nginx/html/console/js/bravo_alert
-COPY srs-ngb/trunk/src/bravo_popover /usr/local/srs/objs/nginx/html/console/js/bravo_popover
+COPY srs-console/trunk/research/console /usr/local/srs/objs/nginx/html/console
 
 ############################################################
 # dist
