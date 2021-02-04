@@ -61,6 +61,9 @@ COPY --from=build /usr/local/ssl /usr/local/ssl
 RUN yum install -y gcc gcc-c++ make net-tools gdb lsof tree dstat redhat-lsb unzip zip git \
     perf strace sysstat ethtool python2
 
+# For GCP/pprof/gperf, see https://winlin.blog.csdn.net/article/details/53503869
+RUN yum install -y graphviz
+
 # Install cherrypy for HTTP hooks.
 ADD CherryPy-3.2.4.tar.gz2 /tmp
 RUN cd /tmp/CherryPy-3.2.4 && python2 setup.py install
